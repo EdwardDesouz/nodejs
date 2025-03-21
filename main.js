@@ -1,36 +1,25 @@
 import express from "express";
+import movieRoutes from "./routes/movies.route.js"
 
 const app = express();
 const PORT = 6969;
+
+
 
 app.get('/', (req, res) => {
     res.json({ msg: "hello world!" });
 })
 
 // CRUD functionality of movies
-//R - For Reading
-app.get('/movies', () => {
+// CLIENT -> MIDDLEWARE ->SERVER
 
-})
+app.use("/movies", movieRoutes)
 
-// for creating movies
-app.post('/movies', () => {
-
-})
-
-// U - For Updating
-app.put('/movies/:id',() => {
-
-})
-
-// D - For deleting movide
-app.delete('/movies/:id',() => {
-
-})
-
-
+  
 
 app.listen(PORT, () => {
     console.log(`running succssfully at http://localhost:${PORT}`);
 
 })
+
+
